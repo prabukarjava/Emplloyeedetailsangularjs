@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Registration</title>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/general.controller.js"></script>
+<script type="text/javascript" src="app/employee.service.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="crudApp" ng-controller="GeneralController">
+
+   <div class="panel panel-default">
+       <div class="panel-heading">Employees</div>
+       <div class="panel-body">
+        <form class="col-md-4" ng-submit="saveEmployee()">
+         <div class="form-group">
+          <label for="employeeFname">Employee FirstName</label><input type="text"
+             ng-model="employee.fname"  class="form-control"  id="employeeFname"
+             placeholder="Employee First Name">
+         </div>
+         
+         <div class="form-group">
+          <label for="employeeLname">Employee LastName</label><input type="text"
+             ng-model="employee.Lname"  class="form-control"  id="employeeLname"
+             placeholder="Employee Last Name">
+         </div>
+         
+         <div class="form-group">
+          <label for="Salutation">Employee Salutation</label>
+          <select name="Salution" ng-model="employee.Salution" class="form-control" id="Salutation">
+                  <option selected="selected" value="Operation">Mr.</option>
+                  <option value="Mrs">Mrs.</option>
+                  <option value="Miss">Miss.</option>
+    </select>
+         </div>
+         
+         
+         
+         
+         <div class="form-group">
+          <label for="employeeDOB">Employee DOB</label>
+          <input type="date" id="birthday" ng-model="employee.DOB"
+               class="form-control" > 
+            <div>
+            
+            <div class="form-group">
+          <label for="employeeEmail">Employee Email</label><input type="text"
+             ng-model="employee.Email"  class="form-control"  id="employeeEmail"
+             placeholder="Employee Email">
+         </div>
+         
+         
+         <div class="form-group">
+          <label for="employeePassword">Employee password</label><input type="password"
+             ng-model="employee.Password"  class="form-control"  id="employeePassword"
+             placeholder="Employee Password">
+         </div>
+         <button type="submit" class="btn btn-default">{{buttonText}}</button>
+         
+       </form>
+       
+       <div class="table-responsive col-md-6">
+       <table class="table table-striped">
+       <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Salutation</th>
+          <th>DOB</th>
+          <th>Email</th>
+          <th>Password</th>
+       </tr>
+       <tr ng-repeat="employee details">
+           <td>{{employee.fname}}</td>
+           <td>{{employee.Lname}}</td>
+           <td>{{employee.Salution}}</td>
+           <td>{{employee.DOB}}</td>
+           <td>{{employee.Email}}</td>
+           <td>{{employee.Password}}</td>
+           <td>
+              <button type="button"  class="btn btn-default"
+                  ng-click="updateEmployeeInit(employee)">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" class="btn btn-default"
+                      ng-click=deleteEmployee(employee)">
+                      <span class="glyphicon glyphicon-remove-circle"
+                            aria-hidden="true"></span>
+                      </button>
+                     </td>
+                    </tr>  
+                 </table>
+             </div>
+         </div>
+      </div>
+   </body>
+</html>
